@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="">
+<head>
+	<meta charset="utf-8"/>
+	<title>Cấu hình Federation trong Keystone với bản phát hành Liberty. - Cloud Computing Hust</title>
+	<meta name="author" content="CloudComputingHust">
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cloudcomputinghust.github.io/theme/css/main.css" type="text/css" />
+
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+
+	<link href="https://cloudcomputinghust.github.io/" type="application/atom+xml" rel="alternate" title="Cloud Computing Hust ATOM Feed" />
+	<link href="https://cloudcomputinghust.github.io/feeds/feed.rss" type="application/atom+xml" rel="alternate" title="Cloud Computing Hust RSS Feed" />
+</head>
+
+<body>
+	<header class="clearfix" role="banner">
+		<div class="wrapper">
+			<h1 class="huge"><a href="https://cloudcomputinghust.github.io">Cloud Computing Hust</a></h1>
+		</div>
+	</header>
+
+<div role="main" class="content clearfix">	
+	<article>
+		<div class="post wrapper">
+			<h1>Cấu hình Federation trong Keystone với bản phát hành Liberty.</h1>
+			<p>Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
+Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
+Hai máy có cùng 1 mạng, để có thể kết nối với nhau.</p>
+<ul>
+<li>keystone.sp: 1 máy ảo được xem là SP (Service Provider). Được cài đặt các project cơ bản của OpenStack.</li>
+<li>keystone.idp: Máy ảo còn lại được xem là IdP (Identity Provider). Được cài đặt mỗi Keystone project.</li>
+</ul>
+<h2>Kích hoạt Keystone V3 trong devstack/local.conf</h2>
+<div class="highlight"><pre><span></span><span class="k">[[local|localrc]]</span>
+<span class="err">...</span>
+<span class="na">ENABLE_IDENTITY_V2</span><span class="o">=</span><span class="s">False</span>
+</pre></div>
+
+
+<h2>Cấu hình Keystone như một Identity Provider</h2>
+<ul>
+<li>Cài đặt các gói phụ thuộc</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo apt-get install xmlsec1  
+sudo pip install pysaml2  
+</pre></div>
+
+
+<ul>
+<li>Thêm tính năng sinh ra SAML assertions</li>
+</ul>
+<p>Cấu hình trong nhãn [saml] tại <code>/etc/keystone/keystone.conf</code></p>
+<div class="highlight"><pre><span></span><span class="k">[saml]</span>
+<span class="na">certfile</span><span class="o">=</span><span class="s">/etc/keystone/ssl/certs/ca.pem  </span>
+<span class="na">keyfile</span><span class="o">=</span><span class="s">/etc/keystone/ssl/private/cakey.pem  </span>
+<span class="na">idp_entity_id</span><span class="o">=</span><span class="s">http://keystone.idp/v3/OS-FEDERATION/saml2/idp  </span>
+<span class="na">idp_sso_endpoint</span><span class="o">=</span><span class="s">http://keystone.idp/v3/OS-FEDERATION/saml2/sso  </span>
+<span class="na">idp_metadata_path</span><span class="o">=</span><span class="s">/etc/keystone/keystone_idp_metadata.xml  </span>
+</pre></div>
+
+
+<ul>
+<li>Sinh ra khoá và chứng chỉ cho kết nối HTTPS</li>
+</ul>
+<div class="highlight"><pre><span></span>keystone-manage ssl_setup
+</pre></div>
+
+
+<ul>
+<li>Sinh IdP metadata</li>
+</ul>
+<div class="highlight"><pre><span></span>keystone-manage saml_idp_metadata &gt; /etc/keystone/keystone_idp_metadata.xml  
+</pre></div>
+
+
+<ul>
+<li>Khởi động lại dịch vụ web apache2</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo service apache2 restart  
+</pre></div>
+
+
+<h2>Cấu hình Keystone như một Service Provider</h2>
+<ul>
+<li>Kích hoạt xác thực bằng SAML2</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">[auth]</span>
+<span class="na">methods</span> <span class="o">=</span> <span class="s">external,password,token,oauth1,saml2</span>
+<span class="na">saml2</span> <span class="o">=</span> <span class="s">keystone.auth.plugins.mapped.Mapped  </span>
+</pre></div>
+
+
+<ul>
+<li>Cài đặt và cấu hình Shibboleth SP</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo apt-get install libapache2-mod-shib2  
+</pre></div>
+
+
+<p>Thêm dòng WSGIScriptAliasMatch vào <VirtualHost *:5000> trong <code>/etc/apache2/sites-available/keystone.conf</code></p>
+<div class="highlight"><pre><span></span>&lt;VirtualHost *:5000&gt;
+    WSGIScriptAliasMatch ^(/v3/OS-FEDERATION/identity_providers/.*?/protocols/.*?/auth)$   /usr/local/bin/keystone-wsgi-public/$1
+...
+</pre></div>
+
+
+<p>Và thêm đoạn sau vào cuối tập tin <code>/etc/apache2/sites-available/keystone.conf</code></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;Location</span> <span class="err">/Shibboleth.sso</span><span class="nt">&gt;</span>
+    SetHandler shib
+<span class="nt">&lt;/Location&gt;</span>
+
+<span class="nt">&lt;LocationMatch</span> <span class="err">/v3/OS-FEDERATION/identity_providers/.*?/protocols/saml2/auth</span><span class="nt">&gt;</span>
+    ShibRequestSetting requireSession 1
+    AuthType shibboleth
+    ShibExportAssertion Off
+    Require valid-user
+<span class="nt">&lt;/LocationMatch&gt;</span>
+</pre></div>
+
+
+<ul>
+<li>Cập nhật <code>/etc/shibboleth/attribute-map.xml</code></li>
+</ul>
+<div class="highlight"><pre><span></span>&lt;Attributes xmlns=&quot;urn:mace:shibboleth:2.0:attribute-map&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    &lt;Attribute name=&quot;openstack_user&quot; id=&quot;openstack_user&quot;/&gt;  
+    &lt;Attribute name=&quot;openstack_roles&quot; id=&quot;openstack_roles&quot;/&gt;  
+    &lt;Attribute name=&quot;openstack_project&quot; id=&quot;openstack_project&quot;/&gt;  
+    ....
+</pre></div>
+
+
+<ul>
+<li>Cập nhật Keystone IdP entityID và MetadataProvider <code>/etc/shibboleth/shibboleth2.xml</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nt">&lt;SSO</span> <span class="na">entityID=</span><span class="s">&quot;https://keystone.idp/v3/OS-FEDERATION/saml2/idp&quot;</span><span class="nt">&gt;</span>  
+    SAML2 SAML1
+<span class="nt">&lt;/SSO&gt;</span>
+
+<span class="nt">&lt;MetadataProvider</span> <span class="na">type=</span><span class="s">&quot;XML&quot;</span> <span class="na">uri=</span><span class="s">&quot;https://keystone.idp/v3/OS-FEDERATION/saml2/metadata&quot;</span><span class="nt">/&gt;</span>  
+</pre></div>
+
+
+<ul>
+<li>Sinh khoá và khởi động lại dịch vụ</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo shib-keygen  
+sudo a2enmod shib2  
+sudo service apache2 restart  
+</pre></div>
+
+
+<h2>Đăng ký thông tin với nhau</h2>
+<p>Để SP và IdP có thể hiểu và trao đổi thông tin.</p>
+<h3>Đắng ký IdP trong SP</h3>
+<ul>
+<li>Tạo đối tượng SP trong IdP</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">keystoneclient</span> <span class="kn">import</span> <span class="n">session</span> <span class="k">as</span> <span class="n">ksc_session</span>  
+<span class="kn">from</span> <span class="nn">keystoneclient.auth.identity</span> <span class="kn">import</span> <span class="n">v3</span>  
+<span class="kn">from</span> <span class="nn">keystoneclient.v3</span> <span class="kn">import</span> <span class="n">client</span> <span class="k">as</span> <span class="n">keystone_v3</span>
+
+<span class="k">try</span><span class="p">:</span>  
+    <span class="c1"># Used for creating the ADMIN user</span>
+    <span class="n">OS_PASSWORD</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="p">]</span>
+    <span class="n">OS_USERNAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="p">]</span>
+    <span class="c1"># This will vary according to the entity:</span>
+    <span class="c1"># the IdP or the SP</span>
+    <span class="n">OS_AUTH_URL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">]</span>
+    <span class="n">OS_PROJECT_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_PROJECT_NAME&#39;</span><span class="p">]</span>
+    <span class="n">OS_DOMAIN_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_DOMAIN_NAME&#39;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
+    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> environment variable not set.&#39;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">client_for_admin_user</span><span class="p">():</span>  
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">v3</span><span class="o">.</span><span class="n">Password</span><span class="p">(</span><span class="n">auth_url</span><span class="o">=</span><span class="n">OS_AUTH_URL</span><span class="p">,</span>
+                       <span class="n">username</span><span class="o">=</span><span class="n">OS_USERNAME</span><span class="p">,</span>
+                       <span class="n">password</span><span class="o">=</span><span class="n">OS_PASSWORD</span><span class="p">,</span>
+                       <span class="n">user_domain_name</span><span class="o">=</span><span class="n">OS_DOMAIN_NAME</span><span class="p">,</span>
+                       <span class="n">project_name</span><span class="o">=</span><span class="n">OS_PROJECT_NAME</span><span class="p">,</span>
+                       <span class="n">project_domain_name</span><span class="o">=</span><span class="n">OS_DOMAIN_NAME</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">ksc_session</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">keystone_v3</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">)</span>
+
+<span class="c1"># Used to execute all admin actions</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">client_for_admin_user</span><span class="p">()</span>  
+
+<span class="k">def</span> <span class="nf">create_sp</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">sp_id</span><span class="p">,</span> <span class="n">sp_url</span><span class="p">,</span> <span class="n">auth_url</span><span class="p">):</span>  
+        <span class="n">sp_ref</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">sp_id</span><span class="p">,</span>
+                  <span class="s1">&#39;sp_url&#39;</span><span class="p">:</span> <span class="n">sp_url</span><span class="p">,</span>
+                  <span class="s1">&#39;auth_url&#39;</span><span class="p">:</span> <span class="n">auth_url</span><span class="p">,</span>
+                  <span class="s1">&#39;enabled&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="n">federation</span><span class="o">.</span><span class="n">service_providers</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">sp_ref</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Create SP&#39;</span><span class="p">)</span>  
+<span class="n">create_sp</span><span class="p">(</span><span class="n">client</span><span class="p">,</span>  
+          <span class="s1">&#39;keystone.sp&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;http://keystone.sp:5000/Shibboleth.sso/SAML2/ECP&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;http://keystone.sp:5000/v3/OS-FEDERATION/identity_providers/&#39;</span>
+          <span class="s1">&#39;keystone-idp/protocols/saml2/auth&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>Đắng ký IdP trong SP</h3>
+<ul>
+<li>Tạo domain1</li>
+<li>Tạo group1</li>
+<li>Tạo role Member</li>
+<li>Gắn role Member tới domain1 trong group1</li>
+<li>mapping người dùng remote tới local</li>
+<li>Đăng ký identity provider</li>
+<li>Đăng ký giao thức trao đổi</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">oup1</span>
+<span class="kn">from</span> <span class="nn">keystoneclient</span> <span class="kn">import</span> <span class="n">session</span> <span class="k">as</span> <span class="n">ksc_session</span>  
+<span class="kn">from</span> <span class="nn">keystoneclient.auth.identity</span> <span class="kn">import</span> <span class="n">v3</span>  
+<span class="kn">from</span> <span class="nn">keystoneclient.v3</span> <span class="kn">import</span> <span class="n">client</span> <span class="k">as</span> <span class="n">keystone_v3</span>
+
+<span class="k">try</span><span class="p">:</span>  
+    <span class="c1"># Used for creating the ADMIN user</span>
+    <span class="n">OS_PASSWORD</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="p">]</span>
+    <span class="n">OS_USERNAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="p">]</span>
+    <span class="c1"># This will vary according to the entity:</span>
+    <span class="c1"># the IdP or the SP</span>
+    <span class="n">OS_AUTH_URL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">]</span>
+    <span class="n">OS_PROJECT_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_PROJECT_NAME&#39;</span><span class="p">]</span>
+    <span class="n">OS_DOMAIN_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS_DOMAIN_NAME&#39;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
+    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> environment variable not set.&#39;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">client_for_admin_user</span><span class="p">():</span>  
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">v3</span><span class="o">.</span><span class="n">Password</span><span class="p">(</span><span class="n">auth_url</span><span class="o">=</span><span class="n">OS_AUTH_URL</span><span class="p">,</span>
+                       <span class="n">username</span><span class="o">=</span><span class="n">OS_USERNAME</span><span class="p">,</span>
+                       <span class="n">password</span><span class="o">=</span><span class="n">OS_PASSWORD</span><span class="p">,</span>
+                       <span class="n">user_domain_name</span><span class="o">=</span><span class="n">OS_DOMAIN_NAME</span><span class="p">,</span>
+                       <span class="n">project_name</span><span class="o">=</span><span class="n">OS_PROJECT_NAME</span><span class="p">,</span>
+                       <span class="n">project_domain_name</span><span class="o">=</span><span class="n">OS_DOMAIN_NAME</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">ksc_session</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">keystone_v3</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">)</span>
+
+<span class="c1"># Used to execute all admin actions</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">client_for_admin_user</span><span class="p">()</span>  
+
+<span class="k">def</span> <span class="nf">create_domain</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>  
+    <span class="k">try</span><span class="p">:</span>
+         <span class="n">d</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">domains</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+         <span class="n">d</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">domains</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span>
+
+<span class="k">def</span> <span class="nf">create_group</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">domain</span><span class="p">):</span>  
+    <span class="k">try</span><span class="p">:</span>
+         <span class="n">g</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+         <span class="n">g</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">g</span>
+
+<span class="k">def</span> <span class="nf">create_role</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>  
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Creating domain1&#39;</span><span class="p">)</span>  
+<span class="n">domain1</span> <span class="o">=</span> <span class="n">create_domain</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;domain1&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Creating group1&#39;</span><span class="p">)</span>  
+<span class="n">group1</span> <span class="o">=</span> <span class="n">create_group</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;group1&#39;</span><span class="p">,</span> <span class="n">domain1</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Creating role Member&#39;</span><span class="p">)</span>  
+<span class="n">role1</span> <span class="o">=</span> <span class="n">create_role</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Grant role Member to group1 in domain1&#39;</span><span class="p">)</span>  
+<span class="c1">#client.roles.grant(role1, group=group1, domain=domain1, os_inherit_extension_inherited=True)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="n">role1</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group1</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain1</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">List group1 role assignments&#39;</span><span class="p">)</span>  
+<span class="n">client</span><span class="o">.</span><span class="n">role_assignments</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group1</span><span class="p">)</span>  
+<span class="k">def</span> <span class="nf">create_mapping</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">mapping_id</span><span class="p">,</span> <span class="n">rules</span><span class="p">):</span>  
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">federation</span><span class="o">.</span><span class="n">mappings</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">mapping_id</span><span class="o">=</span><span class="n">mapping_id</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">federation</span><span class="o">.</span><span class="n">mappings</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+            <span class="n">mapping_id</span><span class="o">=</span><span class="n">mapping_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Creating mapping&#39;</span><span class="p">)</span>  
+<span class="n">rules</span> <span class="o">=</span> <span class="p">[</span>  
+<span class="p">{</span>
+    <span class="s2">&quot;local&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;federated_user&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">group1</span><span class="o">.</span><span class="n">id</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;remote&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;openstack_user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;any_one_of&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;user1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;admin&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">mapping1</span> <span class="o">=</span> <span class="n">create_mapping</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">mapping_id</span><span class="o">=</span><span class="s1">&#39;keystone-idp-mapping&#39;</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_idp</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">remote_id</span><span class="p">):</span>  
+    <span class="n">idp_ref</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+               <span class="s1">&#39;remote_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">remote_id</span><span class="p">],</span>
+               <span class="s1">&#39;enabled&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">federation</span><span class="o">.</span><span class="n">identity_providers</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">idp_ref</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">federation</span><span class="o">.</span><span class="n">identity_providers</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">i</span>
+
+<span class="k">def</span> <span class="nf">create_protocol</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">protocol_id</span><span class="p">,</span> <span class="n">idp</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>  
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">federation</span><span class="o">.</span><span class="n">protocols</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">protocol_id</span><span class="o">=</span><span class="n">protocol_id</span><span class="p">,</span>
+                                               <span class="n">identity_provider</span><span class="o">=</span><span class="n">idp</span><span class="p">,</span>
+                                               <span class="n">mapping</span><span class="o">=</span><span class="n">mapping</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">federation</span><span class="o">.</span><span class="n">protocols</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">protocol_id</span><span class="o">=</span><span class="n">protocol_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Register keystone-idp&#39;</span><span class="p">)</span>  
+<span class="n">idp1</span> <span class="o">=</span> <span class="n">create_idp</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;keystone-idp&#39;</span><span class="p">,</span>  
+                  <span class="n">remote_id</span><span class="o">=</span><span class="s1">&#39;https://keystone.idp/v3/OS-FEDERATION/saml2/idp&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Register protocol&#39;</span><span class="p">)</span>  
+<span class="n">protocol1</span> <span class="o">=</span> <span class="n">create_protocol</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">protocol_id</span><span class="o">=</span><span class="s1">&#39;saml2&#39;</span><span class="p">,</span> <span class="n">idp</span><span class="o">=</span><span class="n">idp1</span><span class="p">,</span>  
+                            <span class="n">mapping</span><span class="o">=</span><span class="n">mapping1</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>Sử dụng script cài đặt tự động</h2>
+<p>Tải về <a href="http://cloudcomputinghust.github.io/files/k2k-auto-config.zip">Tại đây</a></p>
+<div class="highlight"><pre><span></span>├── auto-idp
+│   ├── auto.sh
+│   ├── insert_keystone.py
+│   └── setup_k2k_idp.py
+├── auto-sp
+│   ├── auto.sh
+│   ├── configure_shibboleth.py
+│   ├── setup_k2k_sp.py
+│   ├── update_apache_conf.py
+│   └── update_keystone_conf.py
+└── federated-login.sh
+</pre></div>
+
+
+<p>Thêm IP của các host vào /etc/hosts của mỗi máy ảo</p>
+<p>VD:</p>
+<div class="highlight"><pre><span></span>192.168.1.2     keystone.idp
+192.168.1.3     keystone.sp
+</pre></div>
+
+
+<ul>
+<li>Trên host SP</li>
+</ul>
+<div class="highlight"><pre><span></span>export DEVSTACK=/thucmuc_devstack
+cd auto-sp
+./auto.sh
+</pre></div>
+
+
+<ul>
+<li>Trên host IdP</li>
+</ul>
+<div class="highlight"><pre><span></span>export DEVSTACK=/thucmuc_devstack
+cd auto-idp
+./auto.sh
+</pre></div>
+
+
+<ul>
+<li>test hoạt động</li>
+</ul>
+<p>Trên host của IdP</p>
+<div class="highlight"><pre><span></span>cd /thucmuc_devstack
+. openrc admin admin
+# cd /k2k-auto-config-thu-muc
+./federated-login.sh
+</pre></div>
+			
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="" data-lang="en" data-size="large" data-related="">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						
+			
+		</div>
+	
+<div class="meta wrapper">
+	<time datetime="2016-04-25T20:30:00+07:00" pubdate>Mon 25 April 2016</time>
+	<ul class="tag clearfix">
+		<li><a href="https://cloudcomputinghust.github.io/category/2016.html">2016</a></li>
+		<li><a href="https://cloudcomputinghust.github.io/tag/keystone.html">keystone</a></li>
+	</ul>
+</div>	</article>	
+</div>
+
+
+<footer class="clearfix">
+	<div class="wrapper pages">
+		<ul class="nav">
+			<li><a href="https://cloudcomputinghust.github.io/pages/about.html">About</a></li>
+			<li><a href="https://cloudcomputinghust.github.io/archives.html">Archive</a></li>
+		</ul>
+	</div>
+
+	<div class="copy wrapper">
+		<ul class="social">
+			<li><a href="http://github.com/cloudcomputinghust">GitHub</a></li>
+		</ul>
+
+		<p role="contentinfo">© 2016 CloudComputingHust<br>
+		Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>.</p>
+	</div>
+</footer>
+</body>
+</html>
