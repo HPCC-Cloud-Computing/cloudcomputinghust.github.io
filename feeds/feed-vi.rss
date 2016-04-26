@@ -370,4 +370,8 @@ cd auto-idp
 . openrc admin admin
 # cd /k2k-auto-config-thu-muc
 ./federated-login.sh
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Giáp Trần</dc:creator><pubDate>Mon, 25 Apr 2016 20:30:00 +0700</pubDate><guid isPermaLink="false">tag:cloudcomputinghust.github.io,2016-04-25:2016/04/cai-dat-keystone-to-keystone-federation.html</guid><category>keystone</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;&lt;em&gt;Tài liệu tham khảo&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href="http://blog.rodrigods.com/it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo/"&gt;it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Giáp Trần</dc:creator><pubDate>Mon, 25 Apr 2016 20:30:00 +0700</pubDate><guid isPermaLink="false">tag:cloudcomputinghust.github.io,2016-04-25:2016/04/cai-dat-keystone-to-keystone-federation.html</guid><category>keystone</category></item></channel></rss>

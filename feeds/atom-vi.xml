@@ -370,4 +370,8 @@ cd auto-idp
 . openrc admin admin
 # cd /k2k-auto-config-thu-muc
 ./federated-login.sh
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="keystone"></category></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;&lt;em&gt;Tài liệu tham khảo&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href="http://blog.rodrigods.com/it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo/"&gt;it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</summary><category term="keystone"></category></entry></feed>
