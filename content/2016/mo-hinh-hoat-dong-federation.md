@@ -30,34 +30,34 @@ Status: published
 	|<<------------------ return token access ----------------------|
 	|								|								|
 	|								|								|
-	|-------------- use Service via token access ----------------_>>|
+	|-------------- use Service via token access ----------------->>|
 	|								|								|
 ```
 ## Mô hình kết nối
 ```
 
-+--------+								+-------+						+--------+
-| Client |								|  IdP  |						|   SP   |
-|        |								|       |						|        |
-+--------+								+-------+						+--------+
-	|POST /v3/auth/tokens ---------------->>|								|
-	|										|								|
-	|<<------- return Token ----------------|								|
-	|										|								|
-	|										|								|
-	|POST /v3/auth/OS-FEDERATION/saml2/ecp->|								|
-	|										|								|
-	|<<-- return SAML2 assertion -----------|								|
-	|										|								|
-	|										|								|
-	|POST /Shibboleth.sso/SAML2/ECP -------------------------------------->>|
-	|										|								|
-	|GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth|
-	|										|								|
-	|<<------------------ return token access ----------------------|
-	|										|								|
-	|										|								|
-	|GET /v3/OS-FEDERATION/domains  -------------------------------------->>|
-	|GET /v3/OS-FEDERATION/project  -------------------------------------->>|
-	|GET .......---------------------------------------------------------->>|
++--------+								+-------+							+--------+
+| Client |								|  IdP  |							|   SP   |
+|        |								|       |							|        |
++--------+								+-------+							+--------+
+	|POST /v3/auth/tokens ---------------->>|									|
+	|										|									|
+	|<<------- return Token ----------------|									|
+	|										|									|
+	|										|									|
+	|POST /v3/auth/OS-FEDERATION/saml2/ecp->|									|
+	|										|									|
+	|<<-- return SAML2 assertion -----------|									|
+	|										|									|
+	|										|									|
+	|POST /Shibboleth.sso/SAML2/ECP ------------------------------------------>>|
+	|										|									|
+	|GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth |
+	|										|									|
+	|<<------------------ return token access ----------------------------------|
+	|										|									|
+	|										|									|
+	|GET /v3/OS-FEDERATION/domains  ------------------------------------------>>|
+	|GET /v3/OS-FEDERATION/project  ------------------------------------------>>|
+	|GET .......-------------------------------------------------------------->>|
 ```
