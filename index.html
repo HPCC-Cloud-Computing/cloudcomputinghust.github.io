@@ -31,6 +31,50 @@
 <div role="main" class="content clearfix">
 
 	<article class="wrapper main">
+		<h1><a href="https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html">Mô hình hoạt động giữa client, Identity Provider và Service Provider</a></h1>
+		<h2>Mô hình giả ngữ</h2>
+<div class="highlight"><pre><span></span>+--------+                      +-------+                       +--------+
+| Client |                      |  IdP  |                       |   SP   |
+|        |                      |       |                       |        |
++--------+                      +-------+                       +--------+
+    |---------- get Token --------&gt;&gt;|                               |
+    |                               |                               |
+    |&lt;&lt;------- return Token --------|                               |
+    |                               |                               |
+    |                               |                               |
+    |---- get SAML2 assertion ----&gt;&gt;|                               |
+    |                               |                               |
+    |&lt;&lt;-- return SAML2 assertion ---|                               |
+    |                               |                               |
+    |                               |                               |
+    |-------------- submit SAML2 assertion -----------------------&gt;&gt;|
+    |                               |                               |
+    |---------------- obtain unscope token -----------------------&gt;&gt;|
+    |                               |                               |
+    |&lt;&lt;------------------ return token access ----------------------|
+    |                               |                               |
+    |                               |                               |
+    |-------------- use Service via token access ----------------_&gt;&gt;|
+    |                               |                               |
+</pre></div>
+
+
+<h2>Mô hình kết nối</h2>
+<div class="highlight"><pre><span></span>+--------+                              +-------+                       +--------+
+| Client |                              |  IdP  |                       |   SP   |
+|        |                              |       |                       |        |
++--------+                              +-------+                       +--------+
+    |POST /v3/auth/tokens ----------------&gt;&gt;|                               |
+    |                                       |                               |
+    |&lt;&lt;------- return Token ----------------|                               |
+    |                                       |                               |
+    |                                       |                               |
+    |POST /v3/auth/OS-FEDERATION/saml2 ...</pre></div> <a class="btn" href="https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html">read more →</a>
+	</article>
+
+
+
+	<article class="wrapper main">
 		<h1><a href="https://cloudcomputinghust.github.io/2016/04/cai-dat-keystone-to-keystone-federation.html">Cấu hình Federation trong Keystone với bản phát hành Liberty.</a></h1>
 		<p>Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
 Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
@@ -40,6 +84,9 @@ Hai máy có cùng 1 mạng, để có thể kết nối với nhau.</p>
 	</article>
 
 
+	<div class="wrapper main">
+		<h3>More posts</h3>
+		<ol class="archive">
 		</ol>
 
 		<p>More posts in the <a href="https://cloudcomputinghust.github.io/archives.html">archive</a>.</p>

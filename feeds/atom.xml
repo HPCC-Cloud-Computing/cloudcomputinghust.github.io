@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cloud Computing Hust</title><link href="https://cloudcomputinghust.github.io/" rel="alternate"></link><link href="https://cloudcomputinghust.github.io/feeds/atom.xml" rel="self"></link><id>https://cloudcomputinghust.github.io/</id><updated>2016-04-25T20:30:00+07:00</updated><entry><title>Cấu hình Federation trong Keystone với bản phát hành Liberty.</title><link href="https://cloudcomputinghust.github.io/2016/04/cai-dat-keystone-to-keystone-federation.html" rel="alternate"></link><published>2016-04-25T20:30:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-04-25:2016/04/cai-dat-keystone-to-keystone-federation.html</id><summary type="html">&lt;p&gt;Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cloud Computing Hust</title><link href="https://cloudcomputinghust.github.io/" rel="alternate"></link><link href="https://cloudcomputinghust.github.io/feeds/atom.xml" rel="self"></link><id>https://cloudcomputinghust.github.io/</id><updated>2016-04-27T11:17:00+07:00</updated><entry><title>Mô hình hoạt động giữa client, Identity Provider và Service Provider</title><link href="https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html" rel="alternate"></link><published>2016-04-27T11:17:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-04-27:2016/04/mo-hinh-hoat-dong-federation.html</id><summary type="html">&lt;h2&gt;Mô hình giả ngữ&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------+                      +-------+                       +--------+
+| Client |                      |  IdP  |                       |   SP   |
+|        |                      |       |                       |        |
++--------+                      +-------+                       +--------+
+    |---------- get Token --------&amp;gt;&amp;gt;|                               |
+    |                               |                               |
+    |&amp;lt;&amp;lt;------- return Token --------|                               |
+    |                               |                               |
+    |                               |                               |
+    |---- get SAML2 assertion ----&amp;gt;&amp;gt;|                               |
+    |                               |                               |
+    |&amp;lt;&amp;lt;-- return SAML2 assertion ---|                               |
+    |                               |                               |
+    |                               |                               |
+    |-------------- submit SAML2 assertion -----------------------&amp;gt;&amp;gt;|
+    |                               |                               |
+    |---------------- obtain unscope token -----------------------&amp;gt;&amp;gt;|
+    |                               |                               |
+    |&amp;lt;&amp;lt;------------------ return token access ----------------------|
+    |                               |                               |
+    |                               |                               |
+    |-------------- use Service via token access ----------------_&amp;gt;&amp;gt;|
+    |                               |                               |
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Mô hình kết nối&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------+                              +-------+                       +--------+
+| Client |                              |  IdP  |                       |   SP   |
+|        |                              |       |                       |        |
++--------+                              +-------+                       +--------+
+    |POST /v3/auth/tokens ----------------&amp;gt;&amp;gt;|                               |
+    |                                       |                               |
+    |&amp;lt;&amp;lt;------- return Token ----------------|                               |
+    |                                       |                               |
+    |                                       |                               |
+    |POST /v3/auth/OS-FEDERATION/saml2/ecp-&amp;gt;|                               |
+    |                                       |                               |
+    |&amp;lt;&amp;lt;-- return SAML2 assertion -----------|                               |
+    |                                       |                               |
+    |                                       |                               |
+    |POST /Shibboleth.sso/SAML2/ECP --------------------------------------&amp;gt;&amp;gt;|
+    |                                       |                               |
+    |GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth|
+    |                                       |                               |
+    |&amp;lt;&amp;lt;------------------ return token access ----------------------|
+    |                                       |                               |
+    |                                       |                               |
+    |GET /v3/OS-FEDERATION/domains  --------------------------------------&amp;gt;&amp;gt;|
+    |GET /v3/OS-FEDERATION/project  --------------------------------------&amp;gt;&amp;gt;|
+    |GET .......----------------------------------------------------------&amp;gt;&amp;gt;|
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="keystone"></category></entry><entry><title>Cấu hình Federation trong Keystone với bản phát hành Liberty.</title><link href="https://cloudcomputinghust.github.io/2016/04/cai-dat-keystone-to-keystone-federation.html" rel="alternate"></link><published>2016-04-25T20:30:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-04-25:2016/04/cai-dat-keystone-to-keystone-federation.html</id><summary type="html">&lt;p&gt;Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
 Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
 Hai máy có cùng 1 mạng, để có thể kết nối với nhau.&lt;/p&gt;
 &lt;ul&gt;
