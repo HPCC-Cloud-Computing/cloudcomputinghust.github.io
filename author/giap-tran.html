@@ -54,22 +54,22 @@
     |&lt;&lt;------------------ return token access ----------------------|
     |                               |                               |
     |                               |                               |
-    |-------------- use Service via token access ----------------_&gt;&gt;|
+    |-------------- use Service via token access -----------------&gt;&gt;|
     |                               |                               |
 </pre></div>
 
 
 <h2>Mô hình kết nối</h2>
-<div class="highlight"><pre><span></span>+--------+                              +-------+                       +--------+
-| Client |                              |  IdP  |                       |   SP   |
-|        |                              |       |                       |        |
-+--------+                              +-------+                       +--------+
-    |POST /v3/auth/tokens ----------------&gt;&gt;|                               |
-    |                                       |                               |
-    |&lt;&lt;------- return Token ----------------|                               |
-    |                                       |                               |
-    |                                       |                               |
-    |POST /v3/auth/OS-FEDERATION/saml2 ...</pre></div> <a class="btn" href="https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html">read more →</a>
+<div class="highlight"><pre><span></span>+--------+                              +-------+                           +--------+
+| Client |                              |  IdP  |                           |   SP   |
+|        |                              |       |                           |        |
++--------+                              +-------+                           +--------+
+    |POST /v3/auth/tokens ----------------&gt;&gt;|                                   |
+    |                                       |                                   |
+    |&lt;&lt;------- return Token ----------------|                                   |
+    |                                       |                                   |
+    |                                       |                                   |
+    |POST /v3/auth/OS-FEDERATION/saml2/ecp- ...</pre></div> <a class="btn" href="https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html">read more →</a>
 	</article>
 
 

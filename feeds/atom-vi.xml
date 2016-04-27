@@ -21,36 +21,36 @@
     |&amp;lt;&amp;lt;------------------ return token access ----------------------|
     |                               |                               |
     |                               |                               |
-    |-------------- use Service via token access ----------------_&amp;gt;&amp;gt;|
+    |-------------- use Service via token access -----------------&amp;gt;&amp;gt;|
     |                               |                               |
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Mô hình kết nối&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------+                              +-------+                       +--------+
-| Client |                              |  IdP  |                       |   SP   |
-|        |                              |       |                       |        |
-+--------+                              +-------+                       +--------+
-    |POST /v3/auth/tokens ----------------&amp;gt;&amp;gt;|                               |
-    |                                       |                               |
-    |&amp;lt;&amp;lt;------- return Token ----------------|                               |
-    |                                       |                               |
-    |                                       |                               |
-    |POST /v3/auth/OS-FEDERATION/saml2/ecp-&amp;gt;|                               |
-    |                                       |                               |
-    |&amp;lt;&amp;lt;-- return SAML2 assertion -----------|                               |
-    |                                       |                               |
-    |                                       |                               |
-    |POST /Shibboleth.sso/SAML2/ECP --------------------------------------&amp;gt;&amp;gt;|
-    |                                       |                               |
-    |GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth|
-    |                                       |                               |
-    |&amp;lt;&amp;lt;------------------ return token access ----------------------|
-    |                                       |                               |
-    |                                       |                               |
-    |GET /v3/OS-FEDERATION/domains  --------------------------------------&amp;gt;&amp;gt;|
-    |GET /v3/OS-FEDERATION/project  --------------------------------------&amp;gt;&amp;gt;|
-    |GET .......----------------------------------------------------------&amp;gt;&amp;gt;|
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------+                              +-------+                           +--------+
+| Client |                              |  IdP  |                           |   SP   |
+|        |                              |       |                           |        |
++--------+                              +-------+                           +--------+
+    |POST /v3/auth/tokens ----------------&amp;gt;&amp;gt;|                                   |
+    |                                       |                                   |
+    |&amp;lt;&amp;lt;------- return Token ----------------|                                   |
+    |                                       |                                   |
+    |                                       |                                   |
+    |POST /v3/auth/OS-FEDERATION/saml2/ecp-&amp;gt;|                                   |
+    |                                       |                                   |
+    |&amp;lt;&amp;lt;-- return SAML2 assertion -----------|                                   |
+    |                                       |                                   |
+    |                                       |                                   |
+    |POST /Shibboleth.sso/SAML2/ECP ------------------------------------------&amp;gt;&amp;gt;|
+    |                                       |                                   |
+    |GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth |
+    |                                       |                                   |
+    |&amp;lt;&amp;lt;------------------ return token access ----------------------------------|
+    |                                       |                                   |
+    |                                       |                                   |
+    |GET /v3/OS-FEDERATION/domains  ------------------------------------------&amp;gt;&amp;gt;|
+    |GET /v3/OS-FEDERATION/project  ------------------------------------------&amp;gt;&amp;gt;|
+    |GET .......--------------------------------------------------------------&amp;gt;&amp;gt;|
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="keystone"></category></entry><entry><title>Cấu hình Federation trong Keystone với bản phát hành Liberty.</title><link href="https://cloudcomputinghust.github.io/2016/04/cai-dat-keystone-to-keystone-federation.html" rel="alternate"></link><published>2016-04-25T20:30:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-04-25:2016/04/cai-dat-keystone-to-keystone-federation.html</id><summary type="html">&lt;p&gt;Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
 Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
 Hai máy có cùng 1 mạng, để có thể kết nối với nhau.&lt;/p&gt;

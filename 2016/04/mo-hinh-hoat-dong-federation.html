@@ -54,36 +54,36 @@
     |&lt;&lt;------------------ return token access ----------------------|
     |                               |                               |
     |                               |                               |
-    |-------------- use Service via token access ----------------_&gt;&gt;|
+    |-------------- use Service via token access -----------------&gt;&gt;|
     |                               |                               |
 </pre></div>
 
 
 <h2>Mô hình kết nối</h2>
-<div class="highlight"><pre><span></span>+--------+                              +-------+                       +--------+
-| Client |                              |  IdP  |                       |   SP   |
-|        |                              |       |                       |        |
-+--------+                              +-------+                       +--------+
-    |POST /v3/auth/tokens ----------------&gt;&gt;|                               |
-    |                                       |                               |
-    |&lt;&lt;------- return Token ----------------|                               |
-    |                                       |                               |
-    |                                       |                               |
-    |POST /v3/auth/OS-FEDERATION/saml2/ecp-&gt;|                               |
-    |                                       |                               |
-    |&lt;&lt;-- return SAML2 assertion -----------|                               |
-    |                                       |                               |
-    |                                       |                               |
-    |POST /Shibboleth.sso/SAML2/ECP --------------------------------------&gt;&gt;|
-    |                                       |                               |
-    |GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth|
-    |                                       |                               |
-    |&lt;&lt;------------------ return token access ----------------------|
-    |                                       |                               |
-    |                                       |                               |
-    |GET /v3/OS-FEDERATION/domains  --------------------------------------&gt;&gt;|
-    |GET /v3/OS-FEDERATION/project  --------------------------------------&gt;&gt;|
-    |GET .......----------------------------------------------------------&gt;&gt;|
+<div class="highlight"><pre><span></span>+--------+                              +-------+                           +--------+
+| Client |                              |  IdP  |                           |   SP   |
+|        |                              |       |                           |        |
++--------+                              +-------+                           +--------+
+    |POST /v3/auth/tokens ----------------&gt;&gt;|                                   |
+    |                                       |                                   |
+    |&lt;&lt;------- return Token ----------------|                                   |
+    |                                       |                                   |
+    |                                       |                                   |
+    |POST /v3/auth/OS-FEDERATION/saml2/ecp-&gt;|                                   |
+    |                                       |                                   |
+    |&lt;&lt;-- return SAML2 assertion -----------|                                   |
+    |                                       |                                   |
+    |                                       |                                   |
+    |POST /Shibboleth.sso/SAML2/ECP ------------------------------------------&gt;&gt;|
+    |                                       |                                   |
+    |GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth |
+    |                                       |                                   |
+    |&lt;&lt;------------------ return token access ----------------------------------|
+    |                                       |                                   |
+    |                                       |                                   |
+    |GET /v3/OS-FEDERATION/domains  ------------------------------------------&gt;&gt;|
+    |GET /v3/OS-FEDERATION/project  ------------------------------------------&gt;&gt;|
+    |GET .......--------------------------------------------------------------&gt;&gt;|
 </pre></div>
 			
 			<a href="https://twitter.com/share" class="twitter-share-button" data-via="" data-lang="en" data-size="large" data-related="">Tweet</a>

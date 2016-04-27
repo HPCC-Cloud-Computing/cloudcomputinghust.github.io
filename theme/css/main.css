@@ -602,12 +602,12 @@ p,
   .post blockquote,
   .post ul,
   .post ol {
-    width: 66.66666666666667%;
+    width: 90%;
   }
   .main {
     float: none;
     margin-left: 25%;
-    width: 50%;
+    width: 60%;
   }
 }
 @media screen and (min-width: 61.5em) {
