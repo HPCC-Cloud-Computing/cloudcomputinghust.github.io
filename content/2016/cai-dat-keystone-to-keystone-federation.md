@@ -9,6 +9,8 @@ Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
 Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
 Hai máy có cùng 1 mạng, để có thể kết nối với nhau.
 
+Tất cả các command đều được chạy dưới quyền của user stack
+
 - keystone.sp: 1 máy ảo được xem là SP (Service Provider). Được cài đặt các project cơ bản của OpenStack.
 - keystone.idp: Máy ảo còn lại được xem là IdP (Identity Provider). Được cài đặt mỗi Keystone project.
 
@@ -26,7 +28,7 @@ sudo apt-get install xmlsec1
 sudo pip install pysaml2  
 ```
 
-- Thêm tính năng sinh ra SAML assertions
+- Cấu hình thông tin cần thiết xác thực qua SAML
 
 Cấu hình trong nhãn [saml] tại ```/etc/keystone/keystone.conf```
 ```
@@ -51,6 +53,8 @@ sudo service apache2 restart
 ```
 ## Cấu hình Keystone như một Service Provider
 - Kích hoạt xác thực bằng SAML2
+
+Cấu hình trong nhãn [auth] tại ```/etc/keystone/keystone.conf```
 ```
 [auth]
 methods = external,password,token,oauth1,saml2
@@ -108,6 +112,12 @@ sudo service apache2 restart
 ## Đăng ký thông tin với nhau
 Để SP và IdP có thể hiểu và trao đổi thông tin.
 
+Trước khi thực hiện các script. Set các biến môi trường trước.
+```
+cd /thucmuc_devstack
+. openrc admin admin
+```
+
 ### Đắng ký IdP trong SP
 - Tạo đối tượng SP trong IdP
 ```
@@ -131,7 +141,7 @@ except KeyError as e:
 
 def client_for_admin_user():  
     auth = v3.Password(auth_url=OS_AUTH_URL,
-                       username=OS_USERNAME,
+                       usernamdevsse=OS_USERNAME,
                        password=OS_PASSWORD,
                        user_domain_name=OS_DOMAIN_NAME,
                        project_name=OS_PROJECT_NAME,

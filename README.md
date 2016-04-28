@@ -6,6 +6,7 @@
 
 ```
 git clone --recursive --branch manager git@github.com:cloudcomputinghust/cloudcomputinghust.github.io.git ~/cloud
+git submodule foreach  git checkout master
 cd ~/cloud
 ```
 ## How to write new content?
