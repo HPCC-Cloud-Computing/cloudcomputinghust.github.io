@@ -54,6 +54,7 @@
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Giáp Trần</dc:creator><pubDate>Wed, 27 Apr 2016 11:17:00 +0700</pubDate><guid isPermaLink="false">tag:cloudcomputinghust.github.io,2016-04-27:2016/04/mo-hinh-hoat-dong-federation.html</guid><category>keystone</category></item><item><title>Cấu hình Federation trong Keystone với bản phát hành Liberty.</title><link>https://cloudcomputinghust.github.io/2016/04/cai-dat-keystone-to-keystone-federation.html</link><description>&lt;p&gt;Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
 Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
 Hai máy có cùng 1 mạng, để có thể kết nối với nhau.&lt;/p&gt;
+&lt;p&gt;Tất cả các command đều được chạy dưới quyền của user stack&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;keystone.sp: 1 máy ảo được xem là SP (Service Provider). Được cài đặt các project cơ bản của OpenStack.&lt;/li&gt;
 &lt;li&gt;keystone.idp: Máy ảo còn lại được xem là IdP (Identity Provider). Được cài đặt mỗi Keystone project.&lt;/li&gt;
@@ -75,7 +76,7 @@ sudo pip install pysaml2
 
 
 &lt;ul&gt;
-&lt;li&gt;Thêm tính năng sinh ra SAML assertions&lt;/li&gt;
+&lt;li&gt;Cấu hình thông tin cần thiết xác thực qua SAML&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Cấu hình trong nhãn [saml] tại &lt;code&gt;/etc/keystone/keystone.conf&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[saml]&lt;/span&gt;
@@ -112,6 +113,7 @@ sudo pip install pysaml2
 &lt;ul&gt;
 &lt;li&gt;Kích hoạt xác thực bằng SAML2&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Cấu hình trong nhãn [auth] tại &lt;code&gt;/etc/keystone/keystone.conf&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[auth]&lt;/span&gt;
 &lt;span class="na"&gt;methods&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;external,password,token,oauth1,saml2&lt;/span&gt;
 &lt;span class="na"&gt;saml2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;keystone.auth.plugins.mapped.Mapped  &lt;/span&gt;
@@ -179,6 +181,12 @@ sudo service apache2 restart
 
 &lt;h2&gt;Đăng ký thông tin với nhau&lt;/h2&gt;
 &lt;p&gt;Để SP và IdP có thể hiểu và trao đổi thông tin.&lt;/p&gt;
+&lt;p&gt;Trước khi thực hiện các script. Set các biến môi trường trước.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /thucmuc_devstack
+. openrc admin admin
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h3&gt;Đắng ký IdP trong SP&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Tạo đối tượng SP trong IdP&lt;/li&gt;
@@ -203,7 +211,7 @@ sudo service apache2 restart
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;client_for_admin_user&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;  
     &lt;span class="n"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;v3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth_url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_AUTH_URL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_USERNAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                       &lt;span class="n"&gt;usernamdevsse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_USERNAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                        &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                        &lt;span class="n"&gt;user_domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                        &lt;span class="n"&gt;project_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PROJECT_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
