@@ -35,7 +35,6 @@
 			<p>Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
 Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
 Hai máy có cùng 1 mạng, để có thể kết nối với nhau.</p>
-<p>Tất cả các command đều được chạy dưới quyền của user stack</p>
 <ul>
 <li>keystone.sp: 1 máy ảo được xem là SP (Service Provider). Được cài đặt các project cơ bản của OpenStack.</li>
 <li>keystone.idp: Máy ảo còn lại được xem là IdP (Identity Provider). Được cài đặt mỗi Keystone project.</li>
@@ -57,7 +56,7 @@ sudo pip install pysaml2
 
 
 <ul>
-<li>Cấu hình thông tin cần thiết xác thực qua SAML</li>
+<li>Thêm tính năng sinh ra SAML assertions</li>
 </ul>
 <p>Cấu hình trong nhãn [saml] tại <code>/etc/keystone/keystone.conf</code></p>
 <div class="highlight"><pre><span></span><span class="k">[saml]</span>
@@ -94,7 +93,6 @@ sudo pip install pysaml2
 <ul>
 <li>Kích hoạt xác thực bằng SAML2</li>
 </ul>
-<p>Cấu hình trong nhãn [auth] tại <code>/etc/keystone/keystone.conf</code></p>
 <div class="highlight"><pre><span></span><span class="k">[auth]</span>
 <span class="na">methods</span> <span class="o">=</span> <span class="s">external,password,token,oauth1,saml2</span>
 <span class="na">saml2</span> <span class="o">=</span> <span class="s">keystone.auth.plugins.mapped.Mapped  </span>
@@ -162,12 +160,6 @@ sudo service apache2 restart
 
 <h2>Đăng ký thông tin với nhau</h2>
 <p>Để SP và IdP có thể hiểu và trao đổi thông tin.</p>
-<p>Trước khi thực hiện các script. Set các biến môi trường trước.</p>
-<div class="highlight"><pre><span></span>cd /thucmuc_devstack
-. openrc admin admin
-</pre></div>
-
-
 <h3>Đắng ký IdP trong SP</h3>
 <ul>
 <li>Tạo đối tượng SP trong IdP</li>
@@ -192,7 +184,7 @@ sudo service apache2 restart
 
 <span class="k">def</span> <span class="nf">client_for_admin_user</span><span class="p">():</span>  
     <span class="n">auth</span> <span class="o">=</span> <span class="n">v3</span><span class="o">.</span><span class="n">Password</span><span class="p">(</span><span class="n">auth_url</span><span class="o">=</span><span class="n">OS_AUTH_URL</span><span class="p">,</span>
-                       <span class="n">usernamdevsse</span><span class="o">=</span><span class="n">OS_USERNAME</span><span class="p">,</span>
+                       <span class="n">username</span><span class="o">=</span><span class="n">OS_USERNAME</span><span class="p">,</span>
                        <span class="n">password</span><span class="o">=</span><span class="n">OS_PASSWORD</span><span class="p">,</span>
                        <span class="n">user_domain_name</span><span class="o">=</span><span class="n">OS_DOMAIN_NAME</span><span class="p">,</span>
                        <span class="n">project_name</span><span class="o">=</span><span class="n">OS_PROJECT_NAME</span><span class="p">,</span>
