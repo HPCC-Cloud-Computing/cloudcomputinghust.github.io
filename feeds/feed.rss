@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Cloud Computing Hust</title><link>https://cloudcomputinghust.github.io/</link><description></description><lastBuildDate>Wed, 27 Apr 2016 11:17:00 +0700</lastBuildDate><item><title>Mô hình hoạt động giữa client, Identity Provider và Service Provider</title><link>https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html</link><description>&lt;h2&gt;Mô hình giả ngữ&lt;/h2&gt;
+<rss version="2.0"><channel><title>Cloud Computing Hust</title><link>https://cloudcomputinghust.github.io/</link><description></description><lastBuildDate>Sat, 21 May 2016 11:26:00 +0700</lastBuildDate><item><title>Trustworthy cloud platform service idea</title><link>https://cloudcomputinghust.github.io/2016/05/trustworthy-cloud-platform-service-idea.html</link><description>&lt;h1&gt;Cloud Security&lt;/h1&gt;
+&lt;h2&gt;Preface&lt;/h2&gt;
+&lt;p&gt;Cloud, it is not only concept. Cloud is a platform that is mentioned and grow very powerful years recently. A simple website or anyone complex services in Internet that you have used. It could be ran in Cloud platform.&lt;/p&gt;
+&lt;p&gt;When there have many applications, services in Cloud. Beside strength that Cloud bring. The issue of security information and secure Cloud service like?&lt;/p&gt;
+&lt;h2&gt;STATISTICS IN 2015&lt;/h2&gt;
+&lt;h3&gt;Cloud applications&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="apps-cloud.png" src="http://cloudcomputinghust.github.io/images/apps-cloud.png" /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Web applications 43%&lt;/li&gt;
+&lt;li&gt;Communitaion apps 39%&lt;/li&gt;
+&lt;li&gt;Sales and maketing 30%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Data in the Cloud&lt;/h3&gt;
+&lt;p&gt;Email is the most frequently stored corporate information in the cloud &lt;strong&gt;(45%)&lt;/strong&gt;, followed by sales &amp;amp; marketing data &lt;strong&gt;(42%)&lt;/strong&gt;, intellectual property &lt;strong&gt;(38%)&lt;/strong&gt; and customer data &lt;strong&gt;(31%)&lt;/strong&gt;. Few organizations storesensitive financial data &lt;strong&gt;(19%)&lt;/strong&gt; or employee healthcare data &lt;strong&gt;(8%)&lt;/strong&gt; in the cloud.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="data-cloud.png" src="http://cloudcomputinghust.github.io/images/data-cloud.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;ISSUE&lt;/h2&gt;
+&lt;p&gt;At time Cloud appear, the computing resources and availblity are top concern. When Cloud has became platform to companys, users. Information security issues are put on top.
+Many solution are given to limited, prevent the unauthorized access from hacker external.&lt;/p&gt;
+&lt;p&gt;But, data will be safe with Cloud provider?
+Whether there exists a risk of losing safe security: from infrastructure, from network environment, from the staffs.. comes within the provider&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;“Do you trust an external third party with your sensitive data?”&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is the primary concern for companies that are joining the gold rush that is Cloud Computing.
+The most common way to establish trust between a Cloud User (Data Controllers) and a Cloud Provider (Data Processors) is by establishing a Service Level Agreement (SLA) and auditing.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="issue.png" src="http://cloudcomputinghust.github.io/images/issue.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Even if the Cloud provider is audited, the current situation introduces several serious security risks:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;As soon as the IT operations are moved into the Cloud the User loses control over it.
+Example:  if data are uploaded into the Cloud (i.e. into a virtual machine’s
+file system) the Provider always can accessed and modify it.&lt;/li&gt;
+&lt;li&gt;Even if the Cloud Provider is bind with SLA there are threats of disclosing customer’s
+security sensitive data and computations inside the Cloud. Specifically malicious insiders
+(e.g. Cloud administrators) represent a significant concern.&lt;/li&gt;
+&lt;li&gt;Security of the Cloud infrastructure has direct impact on the security of the other above layered levels, namely platforms and software&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;To resolve the this security problems, we need to have answer for question:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;“How do users are allowed to use cloud resources without the disclosure of sensitive information (data, applications/funcitons/workflow) for cloud providers. But at the same time allow the cloud provider to manage cloud infrastructure safely and effectively?”&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;IDEA&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="idea.png" src="http://cloudcomputinghust.github.io/images/idea.png" /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cloud User:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Do not provide authentication data directly Cloud Provider.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cloud Provider:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Do not know who is the owner of the data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Trust Sevice:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;With User:&lt;/strong&gt; The service that users trusted to provide the personal information, and through this service to use the resources from the cloud provider, without knowing the resource is in any provider.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;With Provider:&lt;/strong&gt; Do not know who your customers are, all customers will be transferred by this service a certain identity.
+&lt;img alt="idea-1.png" src="http://cloudcomputinghust.github.io/images/idea.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Giáp Trần</dc:creator><pubDate>Sat, 21 May 2016 11:26:00 +0700</pubDate><guid isPermaLink="false">tag:cloudcomputinghust.github.io,2016-05-21:2016/05/trustworthy-cloud-platform-service-idea.html</guid><category>keystone</category><category>federation</category><category>security</category></item><item><title>Mô hình hoạt động giữa client, Identity Provider và Service Provider</title><link>https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html</link><description>&lt;h2&gt;Mô hình giả ngữ&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------+                      +-------+                       +--------+
 | Client |                      |  IdP  |                       |   SP   |
 |        |                      |       |                       |        |
@@ -54,6 +105,7 @@
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Giáp Trần</dc:creator><pubDate>Wed, 27 Apr 2016 11:17:00 +0700</pubDate><guid isPermaLink="false">tag:cloudcomputinghust.github.io,2016-04-27:2016/04/mo-hinh-hoat-dong-federation.html</guid><category>keystone</category></item><item><title>Cấu hình Federation trong Keystone với bản phát hành Liberty.</title><link>https://cloudcomputinghust.github.io/2016/04/cai-dat-keystone-to-keystone-federation.html</link><description>&lt;p&gt;Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
 Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
 Hai máy có cùng 1 mạng, để có thể kết nối với nhau.&lt;/p&gt;
+&lt;p&gt;Tất cả các command đều được chạy dưới quyền của user stack&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;keystone.sp: 1 máy ảo được xem là SP (Service Provider). Được cài đặt các project cơ bản của OpenStack.&lt;/li&gt;
 &lt;li&gt;keystone.idp: Máy ảo còn lại được xem là IdP (Identity Provider). Được cài đặt mỗi Keystone project.&lt;/li&gt;
@@ -75,7 +127,7 @@ sudo pip install pysaml2
 
 
 &lt;ul&gt;
-&lt;li&gt;Thêm tính năng sinh ra SAML assertions&lt;/li&gt;
+&lt;li&gt;Cấu hình thông tin cần thiết xác thực qua SAML&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Cấu hình trong nhãn [saml] tại &lt;code&gt;/etc/keystone/keystone.conf&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[saml]&lt;/span&gt;
@@ -112,6 +164,7 @@ sudo pip install pysaml2
 &lt;ul&gt;
 &lt;li&gt;Kích hoạt xác thực bằng SAML2&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Cấu hình trong nhãn [auth] tại &lt;code&gt;/etc/keystone/keystone.conf&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[auth]&lt;/span&gt;
 &lt;span class="na"&gt;methods&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;external,password,token,oauth1,saml2&lt;/span&gt;
 &lt;span class="na"&gt;saml2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;keystone.auth.plugins.mapped.Mapped  &lt;/span&gt;
@@ -179,6 +232,12 @@ sudo service apache2 restart
 
 &lt;h2&gt;Đăng ký thông tin với nhau&lt;/h2&gt;
 &lt;p&gt;Để SP và IdP có thể hiểu và trao đổi thông tin.&lt;/p&gt;
+&lt;p&gt;Trước khi thực hiện các script. Set các biến môi trường trước.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /thucmuc_devstack
+. openrc admin admin
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h3&gt;Đắng ký IdP trong SP&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Tạo đối tượng SP trong IdP&lt;/li&gt;
@@ -203,7 +262,7 @@ sudo service apache2 restart
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;client_for_admin_user&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;  
     &lt;span class="n"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;v3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth_url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_AUTH_URL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_USERNAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                       &lt;span class="n"&gt;usernamdevsse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_USERNAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                        &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                        &lt;span class="n"&gt;user_domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                        &lt;span class="n"&gt;project_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PROJECT_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;

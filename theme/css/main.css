@@ -89,10 +89,10 @@ figcaption {
   box-sizing: border-box;
 }
 .sans, .fancy-font {
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 .mono {
-  font-family: 'Droid Sans Mono', monospace;
+  font-family: 'Open Sans Mono', monospace;
 }
 .small {
   font-size: 12px;
@@ -114,7 +114,7 @@ figcaption {
 }
 .title {
   line-height: 1;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
 }
 body {
@@ -122,7 +122,7 @@ body {
   color: #404040;
   line-height: 24px;
   font-size: 14px;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 a {
   color: #1d73bb;
@@ -136,14 +136,14 @@ h1 {
   font-size: 24px;
   margin: 0 0 36px 0;
   line-height: 1;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
 }
 h2 {
   font-size: 18px;
   margin: 48px 0 24px;
   line-height: 1;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
 }
 h3 {
@@ -152,7 +152,7 @@ h3 {
   font-size: 14px;
   text-transform: uppercase;
   line-height: 1;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
 }
 h4, h5, h6 {
@@ -160,7 +160,7 @@ h4, h5, h6 {
   margin: 24px 0;
   font-size: 14px;
   line-height: 1;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
 }
 b, strong {
@@ -178,7 +178,7 @@ pre {
   box-shadow: inset 0 0 10px #000000;
   color: #ffffff;
   margin-left: -24px;
-  font-family: 'Droid Sans Mono', monospace;
+  font-family: 'Open Sans Mono', monospace;
   padding: 24px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
