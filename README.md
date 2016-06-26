@@ -1,5 +1,7 @@
 [cloudcomputinghust.github.io](http://cloudcomputinghust.github.io/)  is the official blog of **Cloud Computing Hust**
 
+This blog is powered by [Pelican](http://blog.getpelican.com/). 
+
 ## Why have 2 branch?
 - manager: Branch for manager content by MARKDOWN
 - master: Branch for show content by HTML => [Website](http://cloudcomputinghust.github.io/)
@@ -50,5 +52,3 @@ cd -
 git commit -a -m 'add content/content/bai-viet-moi.md'
 git push origin manager
 ```
-`
-`
