@@ -141,7 +141,7 @@ except KeyError as e:
 
 def client_for_admin_user():  
     auth = v3.Password(auth_url=OS_AUTH_URL,
-                       usernamdevsse=OS_USERNAME,
+                       username=OS_USERNAME,
                        password=OS_PASSWORD,
                        user_domain_name=OS_DOMAIN_NAME,
                        project_name=OS_PROJECT_NAME,
