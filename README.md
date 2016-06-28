@@ -1,5 +1,7 @@
 [cloudcomputinghust.github.io](http://cloudcomputinghust.github.io/)  is the official blog of **Cloud Computing Hust**
 
+This blog is powered by [Pelican](http://blog.getpelican.com/). 
+
 ## Why have 2 branch?
 - manager: Branch for manager content by MARKDOWN
 - master: Branch for show content by HTML => [Website](http://cloudcomputinghust.github.io/)
@@ -36,19 +38,19 @@ make stopserver
 ```
 
 #### Deploy new content
+- push html to master branch
 ```
-
-# push html to master branch
 make html
 cd output
 git add *
-git commit -m 'add new content.html'
+git commit -m 'add new bai-viet-moi.html'
 git push origin master
+```
+- push markdown to manager branch
 
-# push markdown to manager branch
+```
 cd -
-git commit -a -m 'add content/content/bai-viet-moi.md'
+git add content/bai-viet-moi.md
+git commit -m 'add content/content/bai-viet-moi.md'
 git push origin manager
 ```
-`
-`
