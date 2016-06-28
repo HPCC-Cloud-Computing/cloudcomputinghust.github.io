@@ -38,17 +38,19 @@ make stopserver
 ```
 
 #### Deploy new content
+- push html to master branch
 ```
-
-# push html to master branch
 make html
 cd output
 git add *
-git commit -m 'add new content.html'
+git commit -m 'add new bai-viet-moi.html'
 git push origin master
+```
+- push markdown to manager branch
 
-# push markdown to manager branch
+```
 cd -
-git commit -a -m 'add content/content/bai-viet-moi.md'
+git add content/bai-viet-moi.md
+git commit -m 'add content/content/bai-viet-moi.md'
 git push origin manager
 ```
