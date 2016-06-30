@@ -64,8 +64,8 @@ sudo pip install pysaml2
 <div class="highlight"><pre><span></span><span class="k">[saml]</span>
 <span class="na">certfile</span><span class="o">=</span><span class="s">/etc/keystone/ssl/certs/ca.pem  </span>
 <span class="na">keyfile</span><span class="o">=</span><span class="s">/etc/keystone/ssl/private/cakey.pem  </span>
-<span class="na">idp_entity_id</span><span class="o">=</span><span class="s">http://keystone.idp/v3/OS-FEDERATION/saml2/idp  </span>
-<span class="na">idp_sso_endpoint</span><span class="o">=</span><span class="s">http://keystone.idp/v3/OS-FEDERATION/saml2/sso  </span>
+<span class="na">idp_entity_id</span><span class="o">=</span><span class="s">http://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp  </span>
+<span class="na">idp_sso_endpoint</span><span class="o">=</span><span class="s">http://keystone.idp:5000/v3/OS-FEDERATION/saml2/sso  </span>
 <span class="na">idp_metadata_path</span><span class="o">=</span><span class="s">/etc/keystone/keystone_idp_metadata.xml  </span>
 </pre></div>
 
@@ -144,11 +144,11 @@ sudo pip install pysaml2
 <ul>
 <li>Cập nhật Keystone IdP entityID và MetadataProvider <code>/etc/shibboleth/shibboleth2.xml</code></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nt">&lt;SSO</span> <span class="na">entityID=</span><span class="s">&quot;https://keystone.idp/v3/OS-FEDERATION/saml2/idp&quot;</span><span class="nt">&gt;</span>  
+<div class="highlight"><pre><span></span><span class="nt">&lt;SSO</span> <span class="na">entityID=</span><span class="s">&quot;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp&quot;</span><span class="nt">&gt;</span>  
     SAML2 SAML1
 <span class="nt">&lt;/SSO&gt;</span>
 
-<span class="nt">&lt;MetadataProvider</span> <span class="na">type=</span><span class="s">&quot;XML&quot;</span> <span class="na">uri=</span><span class="s">&quot;https://keystone.idp/v3/OS-FEDERATION/saml2/metadata&quot;</span><span class="nt">/&gt;</span>  
+<span class="nt">&lt;MetadataProvider</span> <span class="na">type=</span><span class="s">&quot;XML&quot;</span> <span class="na">uri=</span><span class="s">&quot;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/metadata&quot;</span><span class="nt">/&gt;</span>  
 </pre></div>
 
 
@@ -355,7 +355,7 @@ sudo service apache2 restart
 
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Register keystone-idp&#39;</span><span class="p">)</span>  
 <span class="n">idp1</span> <span class="o">=</span> <span class="n">create_idp</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;keystone-idp&#39;</span><span class="p">,</span>  
-                  <span class="n">remote_id</span><span class="o">=</span><span class="s1">&#39;https://keystone.idp/v3/OS-FEDERATION/saml2/idp&#39;</span><span class="p">)</span>
+                  <span class="n">remote_id</span><span class="o">=</span><span class="s1">&#39;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp&#39;</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Register protocol&#39;</span><span class="p">)</span>  
 <span class="n">protocol1</span> <span class="o">=</span> <span class="n">create_protocol</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">protocol_id</span><span class="o">=</span><span class="s1">&#39;saml2&#39;</span><span class="p">,</span> <span class="n">idp</span><span class="o">=</span><span class="n">idp1</span><span class="p">,</span>  

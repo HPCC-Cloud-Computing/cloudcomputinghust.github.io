@@ -133,8 +133,8 @@ sudo pip install pysaml2
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[saml]&lt;/span&gt;
 &lt;span class="na"&gt;certfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/etc/keystone/ssl/certs/ca.pem  &lt;/span&gt;
 &lt;span class="na"&gt;keyfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/etc/keystone/ssl/private/cakey.pem  &lt;/span&gt;
-&lt;span class="na"&gt;idp_entity_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;http://keystone.idp/v3/OS-FEDERATION/saml2/idp  &lt;/span&gt;
-&lt;span class="na"&gt;idp_sso_endpoint&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;http://keystone.idp/v3/OS-FEDERATION/saml2/sso  &lt;/span&gt;
+&lt;span class="na"&gt;idp_entity_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;http://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp  &lt;/span&gt;
+&lt;span class="na"&gt;idp_sso_endpoint&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;http://keystone.idp:5000/v3/OS-FEDERATION/saml2/sso  &lt;/span&gt;
 &lt;span class="na"&gt;idp_metadata_path&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/etc/keystone/keystone_idp_metadata.xml  &lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -213,11 +213,11 @@ sudo pip install pysaml2
 &lt;ul&gt;
 &lt;li&gt;Cập nhật Keystone IdP entityID và MetadataProvider &lt;code&gt;/etc/shibboleth/shibboleth2.xml&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;SSO&lt;/span&gt; &lt;span class="na"&gt;entityID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://keystone.idp/v3/OS-FEDERATION/saml2/idp&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;  
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;SSO&lt;/span&gt; &lt;span class="na"&gt;entityID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;  
     SAML2 SAML1
 &lt;span class="nt"&gt;&amp;lt;/SSO&amp;gt;&lt;/span&gt;
 
-&lt;span class="nt"&gt;&amp;lt;MetadataProvider&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;XML&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;uri=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://keystone.idp/v3/OS-FEDERATION/saml2/metadata&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;  
+&lt;span class="nt"&gt;&amp;lt;MetadataProvider&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;XML&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;uri=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/metadata&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;  
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -424,7 +424,7 @@ sudo service apache2 restart
 
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Register keystone-idp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
 &lt;span class="n"&gt;idp1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_idp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;keystone-idp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
-                  &lt;span class="n"&gt;remote_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://keystone.idp/v3/OS-FEDERATION/saml2/idp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                  &lt;span class="n"&gt;remote_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Register protocol&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
 &lt;span class="n"&gt;protocol1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_protocol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;protocol_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;saml2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;idp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;idp1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
