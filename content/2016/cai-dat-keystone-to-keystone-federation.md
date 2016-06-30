@@ -35,8 +35,8 @@ Cấu hình trong nhãn [saml] tại ```/etc/keystone/keystone.conf```
 [saml]
 certfile=/etc/keystone/ssl/certs/ca.pem  
 keyfile=/etc/keystone/ssl/private/cakey.pem  
-idp_entity_id=http://keystone.idp/v3/OS-FEDERATION/saml2/idp  
-idp_sso_endpoint=http://keystone.idp/v3/OS-FEDERATION/saml2/sso  
+idp_entity_id=http://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp  
+idp_sso_endpoint=http://keystone.idp:5000/v3/OS-FEDERATION/saml2/sso  
 idp_metadata_path=/etc/keystone/keystone_idp_metadata.xml  
 ```
 - Sinh ra khoá và chứng chỉ cho kết nối HTTPS
@@ -95,11 +95,11 @@ Và thêm đoạn sau vào cuối tập tin ```/etc/apache2/sites-available/keys
 ```
 - Cập nhật Keystone IdP entityID và MetadataProvider ```/etc/shibboleth/shibboleth2.xml```
 ```
-<SSO entityID="https://keystone.idp/v3/OS-FEDERATION/saml2/idp">  
+<SSO entityID="https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp">  
     SAML2 SAML1
 </SSO>
 
-<MetadataProvider type="XML" uri="https://keystone.idp/v3/OS-FEDERATION/saml2/metadata"/>  
+<MetadataProvider type="XML" uri="https://keystone.idp:5000/v3/OS-FEDERATION/saml2/metadata"/>  
 ```
 
 - Sinh khoá và khởi động lại dịch vụ
@@ -304,7 +304,7 @@ def create_protocol(client, protocol_id, idp, mapping):
 
 print('\nRegister keystone-idp')  
 idp1 = create_idp(client, id='keystone-idp',  
-                  remote_id='https://keystone.idp/v3/OS-FEDERATION/saml2/idp')
+                  remote_id='https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp')
 
 print('\nRegister protocol')  
 protocol1 = create_protocol(client, protocol_id='saml2', idp=idp1,  
