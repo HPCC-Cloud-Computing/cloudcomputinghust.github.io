@@ -8,7 +8,7 @@ SITEURL = 'https://cloudcomputinghust.github.io'
 
 # Configuration
 TIMEZONE = 'Asia/Ho_Chi_Minh'
-DEFAULT_LANG = u'vi'
+DEFAULT_LANG = u'en'
 DELETE_OUTPUT_DIRECTORY = False
 THEME = "Just-Read"
 DEFAULT_PAGINATION = 5
@@ -52,7 +52,7 @@ EXTRA_PATH_METADATA = {
     'extras/favicon.ico': {'path': 'favicon.ico'},
     }
 SOCIAL = (('GitHub',  'http://github.com/cloudcomputinghust'),)
-# Plugins
 
-#PLUGINS = ["add_translator_line"]
-#PLUGIN_PATHS = ["plugins"]
+#Plugins
+PLUGINS = ["add_translator_line"]
+PLUGIN_PATHS = ["plugins"]
