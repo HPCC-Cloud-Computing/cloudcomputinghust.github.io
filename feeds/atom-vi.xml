@@ -1,488 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cloud Computing Hust</title><link href="https://cloudcomputinghust.github.io/" rel="alternate"></link><link href="https://cloudcomputinghust.github.io/feeds/atom-vi.xml" rel="self"></link><id>https://cloudcomputinghust.github.io/</id><updated>2016-05-21T11:26:00+07:00</updated><entry><title>Trustworthy cloud platform service idea</title><link href="https://cloudcomputinghust.github.io/2016/05/trustworthy-cloud-platform-service-idea.html" rel="alternate"></link><published>2016-05-21T11:26:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-05-21:2016/05/trustworthy-cloud-platform-service-idea.html</id><summary type="html">&lt;h1&gt;Cloud Security&lt;/h1&gt;
-&lt;h2&gt;Preface&lt;/h2&gt;
-&lt;p&gt;Cloud, it is not only concept. Cloud is a platform that is mentioned and grow very powerful years recently. A simple website or anyone complex services in Internet that you have used. It could be ran in Cloud platform.&lt;/p&gt;
-&lt;p&gt;When there have many applications, services in Cloud. Beside strength that Cloud bring. The issue of security information and secure Cloud service like?&lt;/p&gt;
-&lt;h2&gt;STATISTICS IN 2015&lt;/h2&gt;
-&lt;h3&gt;Cloud applications&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cloud Computing Hust</title><link href="https://cloudcomputinghust.github.io/" rel="alternate"></link><link href="https://cloudcomputinghust.github.io/feeds/atom-vi.xml" rel="self"></link><id>https://cloudcomputinghust.github.io/</id><updated>2016-05-21T11:26:00+07:00</updated><entry><title>Ý tưởng nền tảng an toàn Đám mây</title><link href="https://cloudcomputinghust.github.io/2016/05/trustworthy-cloud-platform-service-idea-vi.html" rel="alternate"></link><published>2016-05-21T11:26:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-05-21:2016/05/trustworthy-cloud-platform-service-idea-vi.html</id><summary type="html">&lt;h1&gt;Bảo mật trong Đám mây&lt;/h1&gt;
+&lt;h2&gt;Mở đầu&lt;/h2&gt;
+&lt;p&gt;Cloud, nó không chỉ là một khái niệm. Cloud là một nền tảng được đề cập và phát triển mạnh mẽ trong những năm gần đây. Một trang website đơn giản hay bất kỳ dịch vụ phức tạp nào trên Internet mà bạn đã đang sử dụng. Nó rất có thể đang chạy trên nền tảng Cloud.&lt;/p&gt;
+&lt;p&gt;Khi mà có rất nhiều ứng dụng, dịch vụ trên cloud. Ngoài việc sức mạnh mà cloud mang lại.
+Vấn đề bảo mật thông tin và an toàn dịch vụ trên Cloud như thế nào?&lt;/p&gt;
+&lt;h2&gt;THỐNG KÊ NĂM 2015&lt;/h2&gt;
+&lt;h3&gt;Ứng dụng Cloud&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="apps-cloud.png" src="http://cloudcomputinghust.github.io/images/apps-cloud.png" /&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Web applications 43%&lt;/li&gt;
-&lt;li&gt;Communitaion apps 39%&lt;/li&gt;
-&lt;li&gt;Sales and maketing 30%&lt;/li&gt;
+&lt;li&gt;Ứng dụng web chiếm 43%&lt;/li&gt;
+&lt;li&gt;Ứng dụng truyền thông chiếm 39%&lt;/li&gt;
+&lt;li&gt;Bán hàng và quảng cáo chiếm 30%&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Data in the Cloud&lt;/h3&gt;
-&lt;p&gt;Email is the most frequently stored corporate information in the cloud &lt;strong&gt;(45%)&lt;/strong&gt;, followed by sales &amp;amp; marketing data &lt;strong&gt;(42%)&lt;/strong&gt;, intellectual property &lt;strong&gt;(38%)&lt;/strong&gt; and customer data &lt;strong&gt;(31%)&lt;/strong&gt;. Few organizations storesensitive financial data &lt;strong&gt;(19%)&lt;/strong&gt; or employee healthcare data &lt;strong&gt;(8%)&lt;/strong&gt; in the cloud.&lt;/p&gt;
+&lt;h3&gt;Dữ liệu trong Cloud&lt;/h3&gt;
+&lt;p&gt;Dữ liệu Email được các công ty lưu trữ  thường xuyên nhiều nhất (45%). Tiếp theo là dữ liệu bán hàng của công ty (42%). Các sản phẩm trí truệ (38%) và các thông tin khách hàng với 31%.&lt;/p&gt;
+&lt;p&gt;Rất ít thông tin về tài chính (19%) và dữ liệu chăm sóc sức khoẻ của nhân viên(8%).&lt;/p&gt;
 &lt;p&gt;&lt;img alt="data-cloud.png" src="http://cloudcomputinghust.github.io/images/data-cloud.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;ISSUE&lt;/h2&gt;
-&lt;p&gt;At time Cloud appear, the computing resources and availblity are top concern. When Cloud has became platform to companys, users. Information security issues are put on top.
-Many solution are given to limited, prevent the unauthorized access from hacker external.&lt;/p&gt;
-&lt;p&gt;But, data will be safe with Cloud provider?
-Whether there exists a risk of losing safe security: from infrastructure, from network environment, from the staffs.. comes within the provider&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;“Do you trust an external third party with your sensitive data?”&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This is the primary concern for companies that are joining the gold rush that is Cloud Computing.
-The most common way to establish trust between a Cloud User (Data Controllers) and a Cloud Provider (Data Processors) is by establishing a Service Level Agreement (SLA) and auditing.&lt;/p&gt;
+&lt;h2&gt;BÀI TOÁN&lt;/h2&gt;
+&lt;p&gt;Khi Cloud mới xuất hiện, các bài toán về hiệu năng, tính sẵn sàng,... được quan tâm hàng đầu. Và khi Cloud đã trờ thành nền tảng, công cụ của các công ty, người dùng. Vấn đề an toàn thông tin được đặt lên hàng đầu.&lt;/p&gt;
+&lt;p&gt;Nhiều giải pháp được đưa ra để hạn chế, ngăn chặn việc truy cập trái phép từ các tác nhân (hacker ) bên ngoài.&lt;/p&gt;
+&lt;p&gt;Nhưng, dữ liệu có bảo mật đối với bên cung cấp dịch vụ Cloud (bên trong Cloud)???
+Liệu có tồn tại nguy cơ mất an toàn bảo mật: từ cơ sở hạ tầng, từ môi trường mạng, từ các nhân viên, từ những khách hàng khác,... xuất phát bên trong nhà cung cấp???&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;“Có tin tưởng khi giao dữ liệu nhạy cảm cho một bên khác?”&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Đây là mối quan tâm chính cho các công ty đang tham gia các cơn sốt vàng đó là Cloud Computing.
+Cách phổ biến nhất để thiết lập sự tin tưởng giữa một Cloud User (Data Controllers)  và một nhà cung cấp Cloud (Data Processors) là phải xây dựng một Hiệp định mức độ dịch vụ (SLA) và kiểm toán.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="issue.png" src="http://cloudcomputinghust.github.io/images/issue.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Even if the Cloud provider is audited, the current situation introduces several serious security risks:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; Ngay cả khi các nhà cung cấp đám mây được kiểm toán, tình hình hiện nay chỉ ra một số nguy cơ bảo mật nghiêm trọng: &lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;As soon as the IT operations are moved into the Cloud the User loses control over it.
-Example:  if data are uploaded into the Cloud (i.e. into a virtual machine’s
-file system) the Provider always can accessed and modify it.&lt;/li&gt;
-&lt;li&gt;Even if the Cloud Provider is bind with SLA there are threats of disclosing customer’s
-security sensitive data and computations inside the Cloud. Specifically malicious insiders
-(e.g. Cloud administrators) represent a significant concern.&lt;/li&gt;
-&lt;li&gt;Security of the Cloud infrastructure has direct impact on the security of the other above layered levels, namely platforms and software&lt;/li&gt;
+&lt;li&gt;Ngay sau khi các hoạt động CNTT được đưa vào Cloud thì người dùng mất kiểm soát nó.
+Ví du: nếu dữ liệu đã upload lên Cloud (hay vào trong một máy ảo Cloud) nhà cung cấp luôn luôn có thể truy cập và chỉnh sửa nó.&lt;/li&gt;
+&lt;li&gt;Ngay cả khi nhà cung cấp ràng buộc bởi SLA thì vẫn tiềm ẩn mối đe doạ tiết lộ thông tin nhạy cảm của khách hàng và tính toán trong Cloud. Đặc biệt bởi các nội bộ bên trong (ví dụ: người kỹ thuật Cloud ).&lt;/li&gt;
+&lt;li&gt;An ninh cở sở hạ tầng, phầm mềm của nhà cung cấp đám mây liệu có đảm bảo?&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;To resolve the this security problems, we need to have answer for question:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;“How do users are allowed to use cloud resources without the disclosure of sensitive information (data, applications/funcitons/workflow) for cloud providers. But at the same time allow the cloud provider to manage cloud infrastructure safely and effectively?”&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;IDEA&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Để giải quyết được các vấn đề an ninh này, chúng ta cần giải quyết được bài toán sau:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;“Làm thế nào để người dùng được phép sử dụng tài nguyên đám mây mà không tiết lộ các thông tin nhạy cảm (dữ liệu, ứng dụng / chức năng / quy trình) cho các nhà cung cấp đám mây nhưng đồng thời lại cho phép các nhà cung cấp đám mây để quản lý cơ sở hạ tầng đám mây an toàn và có hiệu quả?”&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Ý TƯỞNG&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="idea.png" src="http://cloudcomputinghust.github.io/images/idea.png" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Cloud User:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Do not provide authentication data directly Cloud Provider.&lt;/p&gt;
+&lt;p&gt;Không đưa dữ liệu chứng thực trực tiếp với nhà cung cấp đám mây.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Cloud Provider:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Do not know who is the owner of the data.&lt;/p&gt;
+&lt;p&gt;Không biết dữ liệu mà mình đang quản lý là của những cá nhân hay tổ chức nào.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Trust Sevice:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;With User:&lt;/strong&gt; The service that users trusted to provide the personal information, and through this service to use the resources from the cloud provider, without knowing the resource is in any provider.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;With Provider:&lt;/strong&gt; Do not know who your customers are, all customers will be transferred by this service a certain identity.
-&lt;img alt="idea-1.png" src="http://cloudcomputinghust.github.io/images/idea-1.png" /&gt;&lt;/p&gt;</summary><category term="keystone"></category><category term="federation"></category><category term="security"></category></entry><entry><title>Mô hình hoạt động giữa client, Identity Provider và Service Provider</title><link href="https://cloudcomputinghust.github.io/2016/04/mo-hinh-hoat-dong-federation.html" rel="alternate"></link><published>2016-04-27T11:17:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-04-27:2016/04/mo-hinh-hoat-dong-federation.html</id><summary type="html">&lt;h2&gt;Mô hình giả ngữ&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------+                      +-------+                       +--------+
-| Client |                      |  IdP  |                       |   SP   |
-|        |                      |       |                       |        |
-+--------+                      +-------+                       +--------+
-    |---------- get Token --------&amp;gt;&amp;gt;|                               |
-    |                               |                               |
-    |&amp;lt;&amp;lt;------- return Token --------|                               |
-    |                               |                               |
-    |                               |                               |
-    |---- get SAML2 assertion ----&amp;gt;&amp;gt;|                               |
-    |                               |                               |
-    |&amp;lt;&amp;lt;-- return SAML2 assertion ---|                               |
-    |                               |                               |
-    |                               |                               |
-    |-------------- submit SAML2 assertion -----------------------&amp;gt;&amp;gt;|
-    |                               |                               |
-    |---------------- obtain unscope token -----------------------&amp;gt;&amp;gt;|
-    |                               |                               |
-    |&amp;lt;&amp;lt;------------------ return token access ----------------------|
-    |                               |                               |
-    |                               |                               |
-    |-------------- use Service via token access -----------------&amp;gt;&amp;gt;|
-    |                               |                               |
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Mô hình kết nối&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+--------+                              +-------+                           +--------+
-| Client |                              |  IdP  |                           |   SP   |
-|        |                              |       |                           |        |
-+--------+                              +-------+                           +--------+
-    |POST /v3/auth/tokens ----------------&amp;gt;&amp;gt;|                                   |
-    |                                       |                                   |
-    |&amp;lt;&amp;lt;------- return Token ----------------|                                   |
-    |                                       |                                   |
-    |                                       |                                   |
-    |POST /v3/auth/OS-FEDERATION/saml2/ecp-&amp;gt;|                                   |
-    |                                       |                                   |
-    |&amp;lt;&amp;lt;-- return SAML2 assertion -----------|                                   |
-    |                                       |                                   |
-    |                                       |                                   |
-    |POST /Shibboleth.sso/SAML2/ECP ------------------------------------------&amp;gt;&amp;gt;|
-    |                                       |                                   |
-    |GET /v3/OS-FEDERATION/identity_providers/keystone-idp/protocols/saml2/auth |
-    |                                       |                                   |
-    |&amp;lt;&amp;lt;------------------ return token access ----------------------------------|
-    |                                       |                                   |
-    |                                       |                                   |
-    |GET /v3/OS-FEDERATION/domains  ------------------------------------------&amp;gt;&amp;gt;|
-    |GET /v3/OS-FEDERATION/project  ------------------------------------------&amp;gt;&amp;gt;|
-    |GET .......--------------------------------------------------------------&amp;gt;&amp;gt;|
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="keystone"></category></entry><entry><title>Cấu hình Federation trong Keystone với bản phát hành Liberty.</title><link href="https://cloudcomputinghust.github.io/2016/04/cai-dat-keystone-to-keystone-federation.html" rel="alternate"></link><published>2016-04-25T20:30:00+07:00</published><author><name>Giáp Trần</name></author><id>tag:cloudcomputinghust.github.io,2016-04-25:2016/04/cai-dat-keystone-to-keystone-federation.html</id><summary type="html">&lt;p&gt;Từ phiên bản v3 của Keystone. Đã hỗ trợ thêm phần Federation.
-Trong bài hướng dẫn hôm nay, sử dụng 2 máy ảo Ubuntu 14.04 LTS chạy Devstack (stable/liberty).
-Hai máy có cùng 1 mạng, để có thể kết nối với nhau.&lt;/p&gt;
-&lt;p&gt;Tất cả các command đều được chạy dưới quyền của user stack&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;keystone.sp: 1 máy ảo được xem là SP (Service Provider). Được cài đặt các project cơ bản của OpenStack.&lt;/li&gt;
-&lt;li&gt;keystone.idp: Máy ảo còn lại được xem là IdP (Identity Provider). Được cài đặt mỗi Keystone project.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Kích hoạt Keystone V3 trong devstack/local.conf&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[[local|localrc]]&lt;/span&gt;
-&lt;span class="err"&gt;...&lt;/span&gt;
-&lt;span class="na"&gt;ENABLE_IDENTITY_V2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;False&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Cấu hình Keystone như một Identity Provider&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Cài đặt các gói phụ thuộc&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install xmlsec1  
-sudo pip install pysaml2  
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Cấu hình thông tin cần thiết xác thực qua SAML&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Cấu hình trong nhãn [saml] tại &lt;code&gt;/etc/keystone/keystone.conf&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[saml]&lt;/span&gt;
-&lt;span class="na"&gt;certfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/etc/keystone/ssl/certs/ca.pem  &lt;/span&gt;
-&lt;span class="na"&gt;keyfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/etc/keystone/ssl/private/cakey.pem  &lt;/span&gt;
-&lt;span class="na"&gt;idp_entity_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;http://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp  &lt;/span&gt;
-&lt;span class="na"&gt;idp_sso_endpoint&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;http://keystone.idp:5000/v3/OS-FEDERATION/saml2/sso  &lt;/span&gt;
-&lt;span class="na"&gt;idp_metadata_path&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/etc/keystone/keystone_idp_metadata.xml  &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Sinh ra khoá và chứng chỉ cho kết nối HTTPS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;keystone-manage ssl_setup
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Sinh IdP metadata&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;keystone-manage saml_idp_metadata &amp;gt; /etc/keystone/keystone_idp_metadata.xml  
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Khởi động lại dịch vụ web apache2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo service apache2 restart  
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Cấu hình Keystone như một Service Provider&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Kích hoạt xác thực bằng SAML2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Cấu hình trong nhãn [auth] tại &lt;code&gt;/etc/keystone/keystone.conf&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[auth]&lt;/span&gt;
-&lt;span class="na"&gt;methods&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;external,password,token,oauth1,saml2&lt;/span&gt;
-&lt;span class="na"&gt;saml2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;keystone.auth.plugins.mapped.Mapped  &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Cài đặt và cấu hình Shibboleth SP&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install libapache2-mod-shib2  
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Thêm dòng WSGIScriptAliasMatch vào &lt;VirtualHost *:5000&gt; trong &lt;code&gt;/etc/apache2/sites-available/keystone.conf&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;VirtualHost *:5000&amp;gt;
-    WSGIScriptAliasMatch ^(/v3/OS-FEDERATION/identity_providers/.*?/protocols/.*?/auth)$   /usr/local/bin/keystone-wsgi-public/$1
-...
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Và thêm đoạn sau vào cuối tập tin &lt;code&gt;/etc/apache2/sites-available/keystone.conf&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;Location&lt;/span&gt; &lt;span class="err"&gt;/Shibboleth.sso&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    SetHandler shib
-&lt;span class="nt"&gt;&amp;lt;/Location&amp;gt;&lt;/span&gt;
-
-&lt;span class="nt"&gt;&amp;lt;LocationMatch&lt;/span&gt; &lt;span class="err"&gt;/v3/OS-FEDERATION/identity_providers/.*?/protocols/saml2/auth&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    ShibRequestSetting requireSession 1
-    AuthType shibboleth
-    ShibExportAssertion Off
-    Require valid-user
-&lt;span class="nt"&gt;&amp;lt;/LocationMatch&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Cập nhật &lt;code&gt;/etc/shibboleth/attribute-map.xml&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;Attributes xmlns=&amp;quot;urn:mace:shibboleth:2.0:attribute-map&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
-    &amp;lt;Attribute name=&amp;quot;openstack_user&amp;quot; id=&amp;quot;openstack_user&amp;quot;/&amp;gt;  
-    &amp;lt;Attribute name=&amp;quot;openstack_roles&amp;quot; id=&amp;quot;openstack_roles&amp;quot;/&amp;gt;  
-    &amp;lt;Attribute name=&amp;quot;openstack_project&amp;quot; id=&amp;quot;openstack_project&amp;quot;/&amp;gt;  
-    ....
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Cập nhật Keystone IdP entityID và MetadataProvider &lt;code&gt;/etc/shibboleth/shibboleth2.xml&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;SSO&lt;/span&gt; &lt;span class="na"&gt;entityID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;  
-    SAML2 SAML1
-&lt;span class="nt"&gt;&amp;lt;/SSO&amp;gt;&lt;/span&gt;
-
-&lt;span class="nt"&gt;&amp;lt;MetadataProvider&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;XML&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;uri=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/metadata&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;  
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Sinh khoá và khởi động lại dịch vụ&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo shib-keygen  
-sudo a2enmod shib2  
-sudo service apache2 restart  
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Đăng ký thông tin với nhau&lt;/h2&gt;
-&lt;p&gt;Để SP và IdP có thể hiểu và trao đổi thông tin.&lt;/p&gt;
-&lt;p&gt;Trước khi thực hiện các script. Set các biến môi trường trước.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /thucmuc_devstack
-. openrc admin admin
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Đắng ký IdP trong SP&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Tạo đối tượng SP trong IdP&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keystoneclient&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;ksc_session&lt;/span&gt;  
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keystoneclient.auth.identity&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;v3&lt;/span&gt;  
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keystoneclient.v3&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;keystone_v3&lt;/span&gt;
-
-&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  
-    &lt;span class="c1"&gt;# Used for creating the ADMIN user&lt;/span&gt;
-    &lt;span class="n"&gt;OS_PASSWORD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_PASSWORD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="n"&gt;OS_USERNAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_USERNAME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="c1"&gt;# This will vary according to the entity:&lt;/span&gt;
-    &lt;span class="c1"&gt;# the IdP or the SP&lt;/span&gt;
-    &lt;span class="n"&gt;OS_AUTH_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_AUTH_URL&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="n"&gt;OS_PROJECT_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_PROJECT_NAME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_DOMAIN_NAME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;KeyError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  
-    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;SystemExit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt; environment variable not set.&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;client_for_admin_user&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;  
-    &lt;span class="n"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;v3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth_url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_AUTH_URL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_USERNAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;user_domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;project_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PROJECT_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;project_domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ksc_session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;keystone_v3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Client&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Used to execute all admin actions&lt;/span&gt;
-&lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client_for_admin_user&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_sp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sp_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sp_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth_url&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  
-        &lt;span class="n"&gt;sp_ref&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sp_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                  &lt;span class="s1"&gt;&amp;#39;sp_url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sp_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                  &lt;span class="s1"&gt;&amp;#39;auth_url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;auth_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                  &lt;span class="s1"&gt;&amp;#39;enabled&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;federation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service_providers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;sp_ref&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Create SP&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;create_sp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
-          &lt;span class="s1"&gt;&amp;#39;keystone.sp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-          &lt;span class="s1"&gt;&amp;#39;http://keystone.sp:5000/Shibboleth.sso/SAML2/ECP&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-          &lt;span class="s1"&gt;&amp;#39;http://keystone.sp:5000/v3/OS-FEDERATION/identity_providers/&amp;#39;&lt;/span&gt;
-          &lt;span class="s1"&gt;&amp;#39;keystone-idp/protocols/saml2/auth&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Đắng ký IdP trong SP&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Tạo domain1&lt;/li&gt;
-&lt;li&gt;Tạo group1&lt;/li&gt;
-&lt;li&gt;Tạo role Member&lt;/li&gt;
-&lt;li&gt;Gắn role Member tới domain1 trong group1&lt;/li&gt;
-&lt;li&gt;mapping người dùng remote tới local&lt;/li&gt;
-&lt;li&gt;Đăng ký identity provider&lt;/li&gt;
-&lt;li&gt;Đăng ký giao thức trao đổi&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-&lt;span class="n"&gt;oup1&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keystoneclient&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;ksc_session&lt;/span&gt;  
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keystoneclient.auth.identity&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;v3&lt;/span&gt;  
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keystoneclient.v3&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;keystone_v3&lt;/span&gt;
-
-&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  
-    &lt;span class="c1"&gt;# Used for creating the ADMIN user&lt;/span&gt;
-    &lt;span class="n"&gt;OS_PASSWORD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_PASSWORD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="n"&gt;OS_USERNAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_USERNAME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="c1"&gt;# This will vary according to the entity:&lt;/span&gt;
-    &lt;span class="c1"&gt;# the IdP or the SP&lt;/span&gt;
-    &lt;span class="n"&gt;OS_AUTH_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_AUTH_URL&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="n"&gt;OS_PROJECT_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_PROJECT_NAME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;OS_DOMAIN_NAME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;KeyError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  
-    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;SystemExit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt; environment variable not set.&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;client_for_admin_user&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;  
-    &lt;span class="n"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;v3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth_url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_AUTH_URL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_USERNAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;user_domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;project_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_PROJECT_NAME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                       &lt;span class="n"&gt;project_domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;OS_DOMAIN_NAME&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ksc_session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;keystone_v3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Client&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Used to execute all admin actions&lt;/span&gt;
-&lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client_for_admin_user&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-         &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;domains&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-         &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;domains&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_group&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-         &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groups&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;domain&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;domain&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-         &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groups&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_role&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;roles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;roles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Creating domain1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;domain1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_domain&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;domain1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Creating group1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;group1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_group&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;group1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;domain1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Creating role Member&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;role1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_role&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Member&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Grant role Member to group1 in domain1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="c1"&gt;#client.roles.grant(role1, group=group1, domain=domain1, os_inherit_extension_inherited=True)&lt;/span&gt;
-&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;roles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grant&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;role1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;group1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;domain&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;domain1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;List group1 role assignments&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;role_assignments&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;group1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_mapping&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mapping_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;federation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mappings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-            &lt;span class="n"&gt;mapping_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mapping_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;federation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mappings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-            &lt;span class="n"&gt;mapping_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mapping_id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Creating mapping&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;rules&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;  
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="s2"&gt;&amp;quot;local&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="s2"&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="s2"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;federated_user&amp;quot;&lt;/span&gt;
-            &lt;span class="p"&gt;},&lt;/span&gt;
-            &lt;span class="s2"&gt;&amp;quot;group&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;group1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;],&lt;/span&gt;
-    &lt;span class="s2"&gt;&amp;quot;remote&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;openstack_user&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="s2"&gt;&amp;quot;any_one_of&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
-                &lt;span class="s2"&gt;&amp;quot;user1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                &lt;span class="s2"&gt;&amp;quot;admin&amp;quot;&lt;/span&gt;
-            &lt;span class="p"&gt;]&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="n"&gt;mapping1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_mapping&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mapping_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;keystone-idp-mapping&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_idp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;remote_id&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  
-    &lt;span class="n"&gt;idp_ref&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-               &lt;span class="s1"&gt;&amp;#39;remote_ids&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;remote_id&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-               &lt;span class="s1"&gt;&amp;#39;enabled&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;federation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;identity_providers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;idp_ref&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;federation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;identity_providers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_protocol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;protocol_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;idp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mapping&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;federation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;protocols&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;protocol_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;protocol_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                               &lt;span class="n"&gt;identity_provider&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;idp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                               &lt;span class="n"&gt;mapping&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mapping&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;federation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;protocols&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;protocol_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;protocol_id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;
-
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Register keystone-idp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;idp1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_idp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;keystone-idp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
-                  &lt;span class="n"&gt;remote_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://keystone.idp:5000/v3/OS-FEDERATION/saml2/idp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;Register protocol&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
-&lt;span class="n"&gt;protocol1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_protocol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;protocol_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;saml2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;idp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;idp1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
-                            &lt;span class="n"&gt;mapping&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mapping1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Sử dụng script cài đặt tự động&lt;/h2&gt;
-&lt;p&gt;Tải về &lt;a href="http://cloudcomputinghust.github.io/files/k2k-auto-config.zip"&gt;Tại đây&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├── auto-idp
-│   ├── auto.sh
-│   ├── insert_keystone.py
-│   └── setup_k2k_idp.py
-├── auto-sp
-│   ├── auto.sh
-│   ├── configure_shibboleth.py
-│   ├── setup_k2k_sp.py
-│   ├── update_apache_conf.py
-│   └── update_keystone_conf.py
-└── federated-login.sh
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Thêm IP của các host vào /etc/hosts của mỗi máy ảo&lt;/p&gt;
-&lt;p&gt;VD:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;192.168.1.2     keystone.idp
-192.168.1.3     keystone.sp
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Trên host SP&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export DEVSTACK=/thucmuc_devstack
-cd auto-sp
-./auto.sh
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Trên host IdP&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export DEVSTACK=/thucmuc_devstack
-cd auto-idp
-./auto.sh
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;test hoạt động&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Trên host của IdP&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /thucmuc_devstack
-. openrc admin admin
-# cd /k2k-auto-config-thu-muc
-./federated-login.sh
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;&lt;em&gt;Tài liệu tham khảo&lt;/em&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href="http://blog.rodrigods.com/it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo/"&gt;it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</summary><category term="keystone"></category></entry></feed>
+&lt;p&gt;&lt;strong&gt;Đối với phía User:&lt;/strong&gt;
+Dịch vụ mà người dùng tin cậy để cung cấp các thông tin cá nhân, và thông qua agent để sử dụng cloud được cung cấp từ phía provider, mà không cần biết Cloud này là của Provider nào.
+ &lt;strong&gt;Đối với phía Provider:&lt;/strong&gt;
+Không được biết khách hàng của mình là ai, tất cả khách hàng sẽ được Agent chuyển giao bằng một định dang nào đó.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="idea-1.png" src="http://cloudcomputinghust.github.io/images/idea-1.png" /&gt;&lt;/p&gt;</summary><category term="keystone"></category><category term="federation"></category><category term="security"></category></entry></feed>
